@@ -1,4 +1,4 @@
-# 🐍Implementação de grafo na linguagem python
+# Grafo em Python🐍
 ### 🤨O que é este projeto?
 Este é um projeto acadêmico de implementação de um grafo em python para a matéria de 
 teoria dos Grafos e Computabilidade. Aqui você poderá criar o seu próprio grafo *direcionado*
