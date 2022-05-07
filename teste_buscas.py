@@ -21,4 +21,5 @@ g.conecta("A", "G")
 g.conecta("G", "H")
 g.conecta("H", "I")
 
-dfs(g,"A")
+# dfs(g,"A")
+print(dfs(g,"A","C"))
