@@ -62,14 +62,14 @@ class Grafo:
         else:
             print("ATENÇÂO -> algum dos rótulos inseridos não está presente no seu grafo")
     
-    def _get_adjacencias(self, rotulo):
+    def get_adjacencias(self, rotulo):
         indice = self.get_indice(rotulo)
         if(indice!= -1):
             adjacencias_raw = self._estrutura.get_adjacencias(indice)
             adjacencias = []
             for i in range(len(adjacencias_raw)):  
                 if adjacencias_raw[i] == 1:
-                    adjacencias.append(self._vertices[i])
+                    adjacencias.append(self._vertices[i].rotulo)
             return adjacencias
         return []
                 
@@ -77,14 +77,10 @@ class Grafo:
     def mostra_adjacencias(self, rotulo):
         indice = self.get_indice(rotulo)
         if(indice != -1):
-            adjacencias = self._get_adjacencias(rotulo)
+            adjacencias = self.get_adjacencias(rotulo)
             
             print(f"Vértices adjacentes ao vértice {rotulo}:")
-            print("[", end="")
-            for i in range(len(adjacencias)):
-                print(adjacencias[i].rotulo, end = "")
-                print(""if i == self._qnt_atual_vertices - 1 else ",", end = "")
-            print("]")
+            print(adjacencias)
             espera_clique()   
         else: 
             print("Vértice não existente!");
