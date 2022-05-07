@@ -8,7 +8,7 @@ ou não, *ponderado* ou não, com a quantidade de vértices que quiser e utiliza
 ### 🚀ToDo
     - [x] Implementação básica(matriz de adjacência).
     - [x] Implementação com lista de adjacência(removida).
-    - [ ] Busca em profundidade.
+    - [x] Busca em profundidade.
     - [ ] Busca em largura.
     - [ ] Caminhamento Dijkstra.
     - [ ] Caminhamento Prim.
