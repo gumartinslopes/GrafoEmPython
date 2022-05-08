@@ -21,5 +21,17 @@ def dfs(g, v, target):
     
 # Implementacao da busca em largura
 def bfs(g, v):
-    adjacencias = g.get_adjacencias(v)
-    pass
+    fila = [v]
+    num_filhos = 0
+    nivel = 0
+    while fila:
+        v = fila[0]
+        if num_filhos == 0:
+            num_filhos = len(fila)
+            nivel += 1
+        adjacencias =  g.get_adjacencias(v)
+        print(f"Nivel:{nivel} -> Abrimos {v}")
+        fila += adjacencias      
+        fila.remove(v)
+        num_filhos -= 1            
+        

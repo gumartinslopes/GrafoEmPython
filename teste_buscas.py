@@ -1,4 +1,4 @@
-from buscas import dfs
+from buscas import bfs
 from grafo import Grafo
 
 g = Grafo(10, False, True)
@@ -21,5 +21,4 @@ g.conecta("A", "G")
 g.conecta("G", "H")
 g.conecta("H", "I")
 
-# dfs(g,"A")
-print(dfs(g,"A","C"))
+bfs(g,"A")
