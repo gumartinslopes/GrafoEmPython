@@ -9,7 +9,7 @@ ou não, *ponderado* ou não, com a quantidade de vértices que quiser e utiliza
     - [x] Implementação básica(matriz de adjacência).
     - [x] Implementação com lista de adjacência(removida).
     - [x] Busca em profundidade.
-    - [ ] Busca em largura.
+    - [x] Busca em largura.
     - [ ] Caminhamento Dijkstra.
     - [ ] Caminhamento Prim.
     - [ ] Caminhamento Kruskal.
