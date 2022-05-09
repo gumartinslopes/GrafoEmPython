@@ -1,23 +1,35 @@
 # Implementacao da busca em profundidade para todos os vértices
 def dfs(g, v):
-    print(f"Abrimos {v}")
-    adjacencias =  g.get_adjacencias(v)
-    for adjacencia in adjacencias:
-        dfs(g, adjacencia)
-    print(f"    Fechamos {v}")
+    _dfs(g, v, [])
 
-# Implementacao com vértice alvo
-def dfs(g, v, target):
-    if(v == target):
-        return True
-    else:
-        result = False
-        print(f"Abrimos {v}") 
+def _dfs(g, v, visitados):
+    if(v not in visitados):
+        print(f"Abrimos {v}")
+        visitados.append(v)
         adjacencias =  g.get_adjacencias(v)
         for adjacencia in adjacencias:
-            result = result or dfs(g, adjacencia, target)
+            _dfs(g, adjacencia, visitados)
         print(f"    Fechamos {v}")
-        return result
+
+# Implementacao com vértice alvo
+def dfs_target(g, v, target):
+    encontrado = _dfs_target(g, v, target, [])
+    texto_result = "encontrado" if encontrado else "nao encontrado"
+    print(f"Vertice {target} foi {texto_result}")
+    
+def _dfs_target(g, v, target, visitados):
+    result = False
+    
+    if(v == target):
+        result =  True
+    elif v not in visitados:
+        print(f"Abrimos {v}") 
+        visitados.append(v)
+        adjacencias =  g.get_adjacencias(v)
+        for adjacencia in adjacencias:
+            result = result or _dfs_target(g, adjacencia, target, visitados)
+        print(f"    Fechamos {v}")
+    return result
     
 # Implementacao da busca em largura para todos os vértices
 def bfs(g, v):

@@ -43,10 +43,10 @@ class Grafo:
             self._estrutura_pesos.display()
     
     def conecta(self, rotulo_v1, rotulo_v2):
-        indice_v1 = self.get_indice(rotulo_v1)
-        indice_v2 = self.get_indice(rotulo_v2)
         peso = 0
-        if indice_v1 > -1 and indice_v2 > -1:# validacao da conexao
+        if self.existe_vertice(rotulo_v1) and self.existe_vertice(rotulo_v2):# validacao da conexao
+            indice_v1 = self.get_indice(rotulo_v1)
+            indice_v2 = self.get_indice(rotulo_v2)
             if(self._ponderado):
                 print("Insira o peso da aresta", end=": ")
                 peso = int(input())
@@ -63,8 +63,8 @@ class Grafo:
             print("ATENÇÂO -> algum dos rótulos inseridos não está presente no seu grafo")
     
     def get_adjacencias(self, rotulo):
-        indice = self.get_indice(rotulo)
-        if(indice!= -1):
+        if self.existe_vertice(rotulo):
+            indice = self.get_indice(rotulo)
             adjacencias_raw = self._estrutura.get_adjacencias(indice)
             adjacencias = []
             for i in range(len(adjacencias_raw)):  
@@ -74,10 +74,11 @@ class Grafo:
         return []
 
     def get_aresta(self, rotulo_v1, rotulo_v2):
-        indice_v1 = self.get_indice(rotulo_v1)
-        indice_v2 = self.get_indice(rotulo_v2)
+        
         valor_aresta = 0
-        if(indice_v1 > -1 and indice_v2 > -1):
+        if self.existe_vertice(rotulo_v1) and self.existe_vertice(rotulo_v2):
+            indice_v1 = self.get_indice(rotulo_v1)
+            indice_v2 = self.get_indice(rotulo_v2)
             valor_aresta = self._estrutura_pesos.get_aresta(indice_v1, indice_v2)
         else:
             print("Algum dos vértices inseridos inexiste no grafo!")
@@ -85,8 +86,7 @@ class Grafo:
                 
                        
     def mostra_adjacencias(self, rotulo):
-        indice = self.get_indice(rotulo)
-        if(indice != -1):
+        if self.existe_vertice(rotulo):
             adjacencias = self.get_adjacencias(rotulo)
             
             print(f"Vértices adjacentes ao vértice {rotulo}:")
@@ -106,7 +106,7 @@ class Grafo:
         return -1   # nao encontrou o vertice
     
     def existe_vertice(self,rotulo):
-        return self.get_indice(rotulo) != -1
+        return self.get_indice(rotulo) > -1
 
     def mostra_lista_vertices(self):
         print("Vertices presentes no seu grafo:\n[")
