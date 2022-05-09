@@ -1,7 +1,7 @@
-from buscas import bfs
+from buscas import bfs, dijkstra
 from grafo import Grafo
 
-g = Grafo(10, False, True)
+g = Grafo(10, True, True)
 g.add_vertice("A")
 g.add_vertice("B")
 g.add_vertice("C")
@@ -21,4 +21,4 @@ g.conecta("A", "G")
 g.conecta("G", "H")
 g.conecta("H", "I")
 
-bfs(g,"A")
+dijkstra(g,"A")

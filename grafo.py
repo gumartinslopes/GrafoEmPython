@@ -72,6 +72,16 @@ class Grafo:
                     adjacencias.append(self._vertices[i].rotulo)
             return adjacencias
         return []
+
+    def get_aresta(self, rotulo_v1, rotulo_v2):
+        indice_v1 = self.get_indice(rotulo_v1)
+        indice_v2 = self.get_indice(rotulo_v2)
+        valor_aresta = 0
+        if(indice_v1 > -1 and indice_v2 > -1):
+            valor_aresta = self._estrutura_pesos.get_aresta(indice_v1, indice_v2)
+        else:
+            print("Algum dos vértices inseridos inexiste no grafo!")
+        return valor_aresta
                 
                        
     def mostra_adjacencias(self, rotulo):

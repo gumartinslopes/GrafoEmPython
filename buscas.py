@@ -1,4 +1,4 @@
-# Implementacao da busca em profundidade para todos os vértice
+# Implementacao da busca em profundidade para todos os vértices
 def dfs(g, v):
     print(f"Abrimos {v}")
     adjacencias =  g.get_adjacencias(v)
@@ -6,7 +6,7 @@ def dfs(g, v):
         dfs(g, adjacencia)
     print(f"    Fechamos {v}")
 
-# Implementacao com alvo
+# Implementacao com vértice alvo
 def dfs(g, v, target):
     if(v == target):
         return True
@@ -19,7 +19,7 @@ def dfs(g, v, target):
         print(f"    Fechamos {v}")
         return result
     
-# Implementacao da busca em largura
+# Implementacao da busca em largura para todos os vértices
 def bfs(g, v):
     fila = [v]
     num_filhos = 0
@@ -34,4 +34,7 @@ def bfs(g, v):
         fila += adjacencias      
         fila.remove(v)
         num_filhos -= 1            
-        
+
+# implementação do dijkstra para todos os vértices
+def dijkstra(g, v):
+    pass

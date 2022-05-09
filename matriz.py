@@ -19,6 +19,11 @@ class Matriz:
             for j in range(self._n_colunas):
                 print(self._matriz[i][j], end = " ")
             print()
+
+    def get_aresta(self, indice_v1, indice_v2):
+        return self._matriz[indice_v1][indice_v2]
             
     def get_adjacencias(self,index):
         return self._matriz[index]
+    
+    
